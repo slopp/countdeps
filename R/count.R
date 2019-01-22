@@ -47,6 +47,7 @@ create_lockfile <- function() {
 
 #' Determines which of the dependencies are directly
 #' referenced in the user's code
+#' @noRd
 count_toplevel <- function() {
   packrat:::dirDependencies(getwd())
 }
