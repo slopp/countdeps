@@ -36,12 +36,13 @@ cleanup <- function(wd, keepLockFile = FALSE) {
 
 create_lockfile <- function() {
   ui("Counting Dependencies ... Hold on, this may take a moment!")
-  suppressMessages({
+  suppressMessages(suppressWarnings({
     packrat:::snapshotImpl(".",
                            snapshot.sources = FALSE,
                            prompt = FALSE,
-                           verbose = FALSE )
-  })
+                           verbose = FALSE,
+                           fallback.ok = TRUE)
+  }))
   ui("Almost done ...")
 }
 
